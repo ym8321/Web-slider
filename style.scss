@@ -1,0 +1,88 @@
+@charset "UTF-8";
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 微軟正黑體;
+}
+
+// 大盒子
+#tammy-slider {
+    height: 100vh;
+    // 溢出 隱藏
+    overflow: hidden;
+
+    // 輪播項目
+    .tammy-item {
+        position: relative;
+        height: 100%;
+        width: 100%;
+        display: none;
+
+        // 圖片
+        img {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            // 動畫名稱
+            animation-name: tammyImage;
+            // 動畫持續時間
+            animation-duration: 1s;
+        }
+
+        // 標題
+        h1 {
+            position: absolute;
+            color: white;
+            top: 100px;
+            left: 150px;
+            text-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
+            z-index: 2;
+            animation-name: tammyTitle;
+            animation-duration: 0.8s;
+            // 動畫延遲
+            animation-delay: 0.3s;
+            // 停留在動畫開始的畫面
+            // forwards : 相反
+            animation-fill-mode: backwards;
+        }
+    }
+
+    .tammy-active {
+        display: block;
+    }
+
+    // 大顆按鈕樣式
+    #tammy-prev, #tammy-next {
+        width: 80PX;
+        height: 100px;
+        background: #ffffff66;
+        position: absolute;
+        z-index: 4;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+
+// 動畫 animation 必須先額外設定動畫的效果
+// @關鍵影格  動畫名稱
+// 0% {} 開始時的效果
+// 0% - 100% {}
+@keyframes tammyImage {
+    0% {
+        transform: scale(1.5);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes tammyTitle {
+    0% {
+        transform: translateX(-500px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
