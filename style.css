@@ -63,6 +63,14 @@
           transform: translateY(-50%);
 }
 
+#tammy-slider #tammy-prev {
+  left: 0;
+}
+
+#tammy-slider #tammy-next {
+  right: 0;
+}
+
 @-webkit-keyframes tammyImage {
   0% {
     -webkit-transform: scale(1.5);
