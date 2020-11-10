@@ -62,6 +62,7 @@
         z-index: 4;
         top: 50%;
         transform: translateY(-50%);
+        cursor: pointer;
     }
 
     #tammy-prev {
@@ -70,6 +71,23 @@
 
     #tammy-next {
         right: 0;
+    }
+
+    #tammy-buttons {
+        position: absolute;
+        bottom: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+
+        .tammybutton {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background: #ffffff77;
+            background-repeat: 50%;
+            margin: 0 10px;
+            cursor: pointer;
+        }
     }
 }
 

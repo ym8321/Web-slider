@@ -61,6 +61,7 @@
   top: 50%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
+  cursor: pointer;
 }
 
 #tammy-slider #tammy-prev {
@@ -69,6 +70,24 @@
 
 #tammy-slider #tammy-next {
   right: 0;
+}
+
+#tammy-slider #tammy-buttons {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+#tammy-slider #tammy-buttons .tammybutton {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background: #ffffff77;
+  background-repeat: 50%;
+  margin: 0 10px;
+  cursor: pointer;
 }
 
 @-webkit-keyframes tammyImage {
