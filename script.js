@@ -13,6 +13,7 @@ function btnNext() {
 
     showItem();
     reset();
+    switchButton();
 }
 
 // 按鈕函式 : 上一張
@@ -23,6 +24,7 @@ function btnPrev() {
     
     showItem();
     reset();
+    switchButton();
 }
 
 next.onclick = btnNext;                                         // 點擊函式
@@ -30,7 +32,7 @@ prev.onclick = btnPrev;                                         // 點擊函式
 
 // 顯示項目函式
 function showItem() {
-    for(var i = 0; i < items; i++) {
+    for(var i = 0; i < items.length; i++) {
         // 迴圈執行 : 將每張項目的類別 tammy-active 移除
         // remove 移除
         items[i].classList.remove("tammy-active");
@@ -41,7 +43,7 @@ function showItem() {
 }
 
 // 取得屬性("屬性名稱")
-var duration = document.getElementById("tammy-slider").toggleAttribute("data-slider-duration");
+var duration = document.getElementById("tammy-slider").getAttribute("data-slider-duration");
 
 // 設定間隔呼叫函式 (函式名稱，時間)
 var auto = setInterval(btnNext, duration);
@@ -50,4 +52,28 @@ var auto = setInterval(btnNext, duration);
 function reset() {
     clearInterval(auto);                    // 清除時間
     auto = setInterval(btnNext, duration);  //重新自動撥放
+}
+
+// 取得所有小按鈕
+var btns = document.getElementsByClassName("tammy-button");
+
+// 迴圈執行每顆按鈕點擊事件
+for (var i = 0; i < btns.length; i++) {
+    // 匿名函式 function() {}
+    btns[i].onclick = function() {
+        index = this.getAttribute("data-slider-item") - 1;  // 編號 = 點擊按鈕的屬性 - 1
+
+        showItem();
+        reset();
+        switchButton();
+    }
+}
+
+// 小按鈕啟動效果切換
+function switchButton() {
+    for (var i =0; i < btns.length; i++) {
+        btns[i].classList.remove("tammy-button-active");
+    }
+
+    btns[index].classList.add("tammy-button-active");
 }

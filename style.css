@@ -80,14 +80,41 @@
           transform: translateX(-50%);
 }
 
-#tammy-slider #tammy-buttons .tammybutton {
+#tammy-slider #tammy-buttons .tammy-button {
   display: inline-block;
   width: 30px;
   height: 30px;
   background: #ffffff77;
-  background-repeat: 50%;
+  border-radius: 50%;
   margin: 0 10px;
   cursor: pointer;
+}
+
+#tammy-slider #tammy-buttons .tammy-button-active {
+  -webkit-animation-name: tammyButton;
+          animation-name: tammyButton;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes tammyButton {
+  0% {
+    background: #ffffff77;
+  }
+  100% {
+    background: #00000077;
+  }
+}
+
+@keyframes tammyButton {
+  0% {
+    background: #ffffff77;
+  }
+  100% {
+    background: #00000077;
+  }
 }
 
 @-webkit-keyframes tammyImage {
